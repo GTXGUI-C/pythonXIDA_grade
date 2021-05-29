@@ -14,13 +14,10 @@ if __name__ == '__main__':
 
     data = pd.read_csv(r'D:\Files\mydata.csv')
     data = data.drop(data.columns[0], axis=1)
-    print(type(data['age']))
 
     # 执行建立数据库和插入数据的操作
     sql = database.get_sql_query_create_table(data, 'XIDA', 'test')
     database.execute_sql(sql)
-    # sql = """insert into wuliga (workclass) values ('man');"""
-    # database.execute_sql(sql)
 
     database.insert_data_into_database(data, 'XIDA', 'test')
 
